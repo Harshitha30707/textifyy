@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textify - Instant Text Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Textify</h1>
+            <div class="theme-switch">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <main class="card">
+            <section class="input-section">
+                <h2>Enter Your Text</h2>
+                <div class="textarea-wrapper">
+                    <textarea id="inputText" placeholder="Paste or type your text here..." rows="10"></textarea>
+                    <button class="clear-text-btn" id="clearTextBtn" title="Clear Text">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="conversion-section">
+                <h2>Choose a Conversion</h2>
+                <div class="conversion-buttons">
+                    <button class="convert-btn" data-case="uppercase">
+                        <i class="fas fa-font"></i> UPPERCASE
+                    </button>
+                    <button class="convert-btn" data-case="lowercase">
+                        <i class="fas fa-text-width"></i> lowercase
+                    </button>
+                    <button class="convert-btn" data-case="titlecase">
+                        <i class="fas fa-heading"></i> Title Case
+                    </button>
+                    <button class="convert-btn" data-case="sentencecase">
+                        <i class="fas fa-paragraph"></i> Sentence case
+                    </button>
+                    <button class="convert-btn" data-case="kebabcase">
+                        <i class="fas fa-minus"></i> kebab-case
+                    </button>
+                    <button class="convert-btn" data-case="snakecase">
+                        <i class="fas fa-underline"></i> snake_case
+                    </button>
+                    <button class="convert-btn" data-case="pascalcase">
+                        <i class="fas fa-i-cursor"></i> PascalCase
+                    </button>
+                    <button class="convert-btn" data-case="camelcase">
+                        <i class="fas fa-edit"></i> camelCase
+                    </button>
+                    <button class="convert-btn" data-case="inversecase">
+                        <i class="fas fa-exchange-alt"></i> iNvErSe CaSe
+                    </button>
+                    <button class="convert-btn" data-case="wordcount">
+                        <i class="fas fa-sort-numeric-up"></i> Word Count
+                    </button>
+                    <button class="convert-btn" data-case="charcount">
+                        <i class="fas fa-hashtag"></i> Character Count
+                    </button>
+                </div>
+            </section>
+
+            <section class="output-section">
+                <h2>Converted Text</h2>
+                <div class="output-wrapper">
+                    <textarea id="outputText" readonly placeholder="Your converted text will appear here..."></textarea>
+                    <button class="copy-btn" id="copyTextBtn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Textify. All rights reserved.</p>
+            <nav>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">About Us</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
