@@ -1,0 +1,434 @@
+:root {
+    --bg-color-light: #f0f2f5;
+    --card-bg-light: #ffffff;
+    --text-color-light: #333333;
+    --header-bg-light: #ffffff;
+    --border-color-light: #e0e0e0;
+    --button-bg-light: #e0e0e0;
+    --button-hover-light: #d0d0d0;
+    --primary-color: #007bff; /* A nice blue for active elements */
+    --primary-hover-color: #0056b3;
+
+    /* Dark Mode Variables */
+    --bg-color-dark: #2c3e50;
+    --card-bg-dark: #34495e;
+    --text-color-dark: #ecf0f1;
+    --header-bg-dark: #34495e;
+    --border-color-dark: #4a627d;
+    --button-bg-dark: #4a627d;
+    --button-hover-dark: #5a7490;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin-top: 20px; /* Space from top */
+    margin-bottom: 20px; /* Space from bottom */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: var(--header-bg-light);
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px; /* Space between header and card */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .header {
+    background-color: var(--header-bg-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.theme-switch {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch i {
+    margin: 0 10px;
+    font-size: 1.2em;
+    color: var(--text-color-light);
+    transition: color 0.3s;
+}
+
+.dark-mode .theme-switch i {
+    color: var(--text-color-dark);
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Card styling */
+.card {
+    background-color: var(--card-bg-light);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px; /* Space above footer */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .card {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color-light);
+    padding-bottom: 10px;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.dark-mode h2 {
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+}
+
+/* Input/Output Textareas */
+.textarea-wrapper, .output-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 15px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    font-size: 1em;
+    line-height: 1.5;
+    resize: vertical; /* Allow vertical resizing */
+    background-color: var(--card-bg-light);
+    color: var(--text-color-light);
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.dark-mode textarea {
+    background-color: var(--header-bg-dark); /* Slightly darker for contrast */
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+
+.clear-text-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.clear-text-btn:hover {
+    color: #555;
+    background-color: #f0f0f0;
+}
+.dark-mode .clear-text-btn {
+    color: #bbb;
+}
+.dark-mode .clear-text-btn:hover {
+    color: #eee;
+    background-color: var(--button-bg-dark);
+}
+
+
+/* Conversion Buttons */
+.conversion-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.convert-btn {
+    background-color: var(--button-bg-light);
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 10px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .convert-btn {
+    background-color: var(--button-bg-dark);
+    color: var(--text-color-dark);
+}
+
+.convert-btn i {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+.dark-mode .convert-btn i {
+    color: var(--text-color-dark); /* Icons are primary, but in dark mode they can be text color */
+}
+
+
+.convert-btn:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .convert-btn:hover {
+    background-color: var(--button-hover-dark);
+}
+
+.convert-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Output Section */
+.output-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: stretch; /* Make textarea and button align vertically */
+}
+
+#outputText {
+    flex-grow: 1;
+    min-height: 100px; /* Ensure output box has a decent height */
+    /* Remove resize for output, keep it fixed */
+    resize: none;
+}
+
+.copy-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap; /* Prevent "Copy" from wrapping */
+}
+
+.copy-btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-1px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid var(--border-color-light);
+    margin-top: 20px;
+    background-color: var(--card-bg-light); /* Match card background */
+    border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.dark-mode .footer {
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer nav a {
+    color: #777;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+}
+
+.dark-mode .footer nav a {
+    color: var(--text-color-dark);
+}
+
+.footer nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 1.8em;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .conversion-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .convert-btn {
+        padding: 12px 8px;
+        font-size: 0.85em;
+        gap: 5px;
+    }
+
+    .convert-btn i {
+        font-size: 1.3em;
+    }
+
+    .output-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .copy-btn {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 1em;
+        justify-content: center;
+    }
+
+    .footer nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .footer nav a {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .header, .card, .footer {
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 10px 15px;
+    }
+
+    .conversion-buttons {
+        grid-template-columns: 1fr 1fr; /* Two columns on very small screens */
+    }
+}
